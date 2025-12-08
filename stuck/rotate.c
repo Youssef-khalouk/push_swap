@@ -1,36 +1,33 @@
-
 #include "ft_printf.h"
+
+static int rotate(int *x)
+{
+	int tmp;
+	
+	tmp = *x;
+	if (!*x || !*(x + 1))
+		return (0);
+	while (1)
+	{
+		x++;
+		if (!*x)
+		{
+			*(x - 1) = tmp;
+			break;
+		}
+		*(x - 1) = *x;
+	}
+	return (1);
+}
 
 void    ra(int *a)
 {
-    int tmp;
-
-    tmp = *a;
-    while (1)
-    {
-        a++;
-        if (!*a)
-        {
-            *(a - 1) = tmp;
-            break;
-        }
-        *(a - 1) = *a;
-    }
+	if (rotate(a))
+		ft_printf("ra\n");
 }
 
-void    ra(int *b)
+void    rb(int *b)
 {
-    int tmp;
-
-    tmp = *b;
-    while (1)
-    {
-        b++;
-        if (!*b)
-        {
-            *(b - 1) = tmp;
-            break;
-        }
-        *(b - 1) = *b;
-    }
+	if (rotate(b))
+		ft_printf("rb\n");
 }
