@@ -2,6 +2,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <stdlib.h>
 # include "printf/ft_printf.h"
 
 typedef struct s_node
@@ -24,5 +25,7 @@ void    rrr(t_node **a, t_node **b);
 void    sa(t_node **a);
 void    sb(t_node **b);
 void    ss(t_node **a, t_node **b);
+
+void	sort(t_node **stuck);
 
 #endif

@@ -26,14 +26,21 @@ int main(void)
 
     t_node *bb = NULL;   // stack B empty
 
-
+    sa(&a);
 	pb(&a, &bb);
 	pb(&a, &bb);
 	pb(&a, &bb);
+    ra(&a);
+    rb(&bb);
+    rra(&a);
+    rrb(&bb);
+    sa(&a);
+    pa(&a, &bb);
+    pa(&a, &bb);
+    pa(&a, &bb);
+    
 
-	// rrr(&a, &bb);
 
-    // Print stacks side by side
     t_node *tmp1 = a;
     t_node *tmp2 = bb;
     for (int i = 0; i < 6; i++)
@@ -44,7 +51,7 @@ int main(void)
             tmp1 = tmp1->next;
         }
         else ft_printf(" ");
-        ft_printf(" ");
+        ft_printf("  ");
         if (tmp2)
         {
             ft_printf("%d", tmp2->value);
@@ -53,5 +60,5 @@ int main(void)
         else ft_printf(" ");
         ft_printf("\n");
     }
-    ft_printf("a b\n");
+    ft_printf("a  b\n");
 }
