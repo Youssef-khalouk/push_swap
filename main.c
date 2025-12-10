@@ -1,19 +1,57 @@
 #include "ft_push_swap.h"
+#include <stdlib.h>
 
-int main()
+int main(void)
 {
-    int a[6] = {2, 1, 3, 6, 5, 8 };
-    int b[6] = {0, 0, 0, 0, 0, 0 };
+    t_node *a = malloc(sizeof(t_node));
+    t_node *b = malloc(sizeof(t_node));
+    t_node *c = malloc(sizeof(t_node));
+    t_node *d = malloc(sizeof(t_node));
+    t_node *e = malloc(sizeof(t_node));
+    t_node *f = malloc(sizeof(t_node));
 
-    pb(a, b, 6);
-    pb(a, b, 6 );
+    a->value = 2;
+    b->value = 1;
+    c->value = 3;
+    d->value = 6;
+    e->value = 5;
+    f->value = 8;
 
-    int i = 0;
-    while (i<6)
+    a->next = b;
+    b->next = c;
+    c->next = d;
+    d->next = e;
+    e->next = f;
+    f->next = NULL;
+
+    t_node *bb = NULL;   // stack B empty
+
+
+	pb(&a, &bb);
+	pb(&a, &bb);
+	pb(&a, &bb);
+
+	// rrr(&a, &bb);
+
+    // Print stacks side by side
+    t_node *tmp1 = a;
+    t_node *tmp2 = bb;
+    for (int i = 0; i < 6; i++)
     {
-        ft_printf("%d %c\n", a[i], b[i] == 0 ? ' ' : ('0' + b[i]));
-        i++;
+        if (tmp1)
+        {
+            ft_printf("%d", tmp1->value);
+            tmp1 = tmp1->next;
+        }
+        else ft_printf(" ");
+        ft_printf(" ");
+        if (tmp2)
+        {
+            ft_printf("%d", tmp2->value);
+            tmp2 = tmp2->next;
+        }
+        else ft_printf(" ");
+        ft_printf("\n");
     }
     ft_printf("a b\n");
-
 }

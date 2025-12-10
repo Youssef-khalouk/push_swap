@@ -29,7 +29,12 @@ void    sb(t_node **b)
 
 void    ss(t_node **a, t_node **b)
 {
-	if (swap(a) || swap(b))
+	int	_a;
+	int	_b;
+
+	_a = swap(a);
+	_b = swap(b);
+	if (_a || _b)
 		ft_printf("ss\n");
 }
 

@@ -8,11 +8,11 @@ static int	revers(t_node	**x)
 	if (!x || !*x || !(*x)->next)
 		return (0);
 	tmp = *x;
-	while (tmp->next)
+	while (tmp->next->next)
 		tmp = tmp->next;
-	tmp->next = *x;
-	*x = (*x)->next;
-	tmp->next->next = NULL;
+	tmp->next->next = *x;
+	*x = tmp->next;
+	tmp->next = NULL;
 	return (1);
 }
 
@@ -30,6 +30,11 @@ void    rrb(t_node	**b)
 
 void    rrr(t_node	**a, t_node	**b)
 {
-	if (revers(a) || revers(b))
+	int	_a;
+	int	_b;
+
+	_a = revers(a);
+	_b = revers(b);
+	if (_a || _b)
 		ft_printf("rrr\n");
 }

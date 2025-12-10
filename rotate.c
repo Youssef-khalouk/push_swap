@@ -27,3 +27,13 @@ void    rb(t_node **b)
 	if (rotate(b))
 		ft_printf("rb\n");
 }
+
+void	rr(t_node **a, t_node **b)
+{
+	int	_a;
+	int	_b;
+	_a = rotate(a);
+	_b = rotate(b);
+	if (_a || _b)
+		ft_printf("rr\n");
+}
