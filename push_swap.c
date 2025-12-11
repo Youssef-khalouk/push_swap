@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ykhalouk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/11 17:06:02 by ykhalouk          #+#    #+#             */
+/*   Updated: 2025/12/11 17:06:04 by ykhalouk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_push_swap.h"
 
 int	ft_atoi(const char *nptr)
@@ -53,7 +65,7 @@ int	is_valid_number(char *s)
 	return (1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int		i;
 	t_node	*stuck;
@@ -75,7 +87,12 @@ int main(int argc, char **argv)
 		stuck->next = tmp;
 		i--;
 	}
-	if (sort(&stuck))
-		return (0);
-	return (ft_printf("Error\n"), 1);
+	sort(&stuck, argc - 1);
+	tmp = stuck;
+	while (tmp)
+	{
+		ft_printf("%d\n", tmp->value);
+		tmp = tmp->next;
+	}
+	return (0);
 }

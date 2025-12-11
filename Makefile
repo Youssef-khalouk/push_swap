@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror
 PRINTF_SRC =printf/ft_printf.c printf/ft_putchar_fd.c printf/ft_putstr_fd.c printf/ft_putnbr_fd.c \
 			printf/ft_putunbr_fd.c printf/ft_putbase16_fd.c printf/ft_putaddress_fd.c
 
-PUSH_SWAP_SRC =	push.c reverse.c rotate.c swap.c
+PUSH_SWAP_SRC =	push.c reverse.c rotate.c swap.c sorting.c
 
 PRINTF_OBJS = $(PRINTF_SRC:.c=.o)
 

@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ykhalouk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/11 17:05:28 by ykhalouk          #+#    #+#             */
+/*   Updated: 2025/12/11 17:05:30 by ykhalouk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "printf/ft_printf.h"
 #include "ft_push_swap.h"
 
-static int rotate(t_node **x)
+static int	rotate(t_node **x)
 {
 	t_node	*tmp;
 
@@ -16,13 +28,13 @@ static int rotate(t_node **x)
 	return (1);
 }
 
-void    ra(t_node **a)
+void	ra(t_node **a)
 {
 	if (rotate(a))
 		ft_printf("ra\n");
 }
 
-void    rb(t_node **b)
+void	rb(t_node **b)
 {
 	if (rotate(b))
 		ft_printf("rb\n");
@@ -32,6 +44,7 @@ void	rr(t_node **a, t_node **b)
 {
 	int	_a;
 	int	_b;
+
 	_a = rotate(a);
 	_b = rotate(b);
 	if (_a || _b)

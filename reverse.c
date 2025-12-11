@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ykhalouk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/11 17:05:38 by ykhalouk          #+#    #+#             */
+/*   Updated: 2025/12/11 17:05:40 by ykhalouk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "printf/ft_printf.h"
 #include "ft_push_swap.h"
 
@@ -16,19 +28,19 @@ static int	revers(t_node	**x)
 	return (1);
 }
 
-void    rra(t_node	**a)
+void	rra(t_node	**a)
 {
 	if (revers(a))
 		ft_printf("rra\n");
 }
 
-void    rrb(t_node	**b)
+void	rrb(t_node	**b)
 {
 	if (revers(b))
 		ft_printf("rrb\n");
 }
 
-void    rrr(t_node	**a, t_node	**b)
+void	rrr(t_node	**a, t_node	**b)
 {
 	int	_a;
 	int	_b;
