@@ -12,7 +12,7 @@
 
 #include "ft_push_swap.h"
 
-t_node	*initalize_stuck_b(t_node **stuck, int *max, int *min)
+t_node	*initalize_stuck_b(t_node **stuck)
 {
 	t_node	*tmp;
 
@@ -21,86 +21,60 @@ t_node	*initalize_stuck_b(t_node **stuck, int *max, int *min)
 	pb(stuck, &tmp);
 	if (tmp->value < tmp->next->value)
 		rb(&tmp);
-	*max = tmp->value;
-	*min = tmp->next->value;
 	return (tmp);
 }
 
-int	get_rotations(t_node **stuckb, int value, int size, int *max, int *min)
+void	rotate_back(t_node **stuckb, int rotations, int b_size)
 {
-	t_node	*tmp;
-	int		pos;
+	if (rotations < b_size)
+	{
+		while (rotations--)
+			rrb(stuckb);
+		return ;
+	}
+	rotations = (b_size - rotations);
+	while (rotations--)
+		rb(stuckb);
+}
 
-	tmp = *stuckb;
-	pos = 0;
-	if (value <= *min)
+int	process(t_node **stuck, t_node **stuckB, int *min)
+{
+	if ((*stuck)->value < *min)
 	{
-		while (tmp->value != *min)
-		{
-			tmp = tmp->next;
-			pos++;
-		}
-		*min = value;	
+		*min = (*stuck)->value;
+		pb(stuck, stuckB);
+		rb(stuckB);
+		return (0);
 	}
-	else if (value >= *max)
+	if ((*stuck)->value > (*stuckB)->value)
 	{
-		while (tmp->value != *max)
-		{
-			tmp = tmp->next;
-			pos++;
-		}
-		*max = value;
+		pb(stuck, stuckB);
+		return (0);
 	}
-	else
-	{
-		while (tmp)
-		{
-			pos++;
-			if (tmp->next && tmp->value > value && tmp->next->value <= value)
-			break ;
-			tmp = tmp->next;
-		}
-	}
-	if ((pos < size / 2))
-		return (pos);
-	else
-		return (-(size - pos));
+	rb(stuckB);
+	return (1);
 }
 
 void	sort(t_node **stuck, unsigned int size)
 {
 	t_node	*stuckb;
-	int		rotate;
-	int		b_size;
-	int		max;
 	int		min;
+	int		rotations;
+	int		b_size;
 
 	if (size < 2)
 		return ;
-	stuckb = initalize_stuck_b(stuck, &max, &min);
+	stuckb = initalize_stuck_b(stuck);
 	b_size = 2;
+	min = stuckb->next->value;
 	while (*stuck)
 	{
-		rotate = get_rotations(&stuckb, (*stuck)->value, b_size, &max, &min);
-		while (rotate > 0)
-		{
-			rb(&stuckb);
-			rotate--;
-		}
-		while (rotate++ < 0)
-			rrb(&stuckb);
-		pb(stuck, &stuckb);
+		rotations = 0;
 		b_size++;
+		while (process(stuck, &stuckb, &min))
+			rotations ++;
+		rotate_back(&stuckb, rotations, b_size);
 	}
-
-
-	// t_node *tmp = stuckb;
-	// while (tmp)
-	// {
-	// 	ft_printf("%d\n", tmp->value);
-	// 	tmp = tmp->next;
-	// }
-
-	// while (stuckb)
-	// 	pa(stuck, &stuckb);
+	while (stuckb)
+		pa(stuck, &stuckb);
 }

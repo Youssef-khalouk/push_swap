@@ -89,7 +89,7 @@ int	main(int argc, char **argv)
 		i--;
 	}
 	sort(&stuck, argc - 1);
-	tmp = stuck;
+	// tmp = stuck;
 	// while (tmp)
 	// {
 	// 	ft_printf("%d\n", tmp->value);
