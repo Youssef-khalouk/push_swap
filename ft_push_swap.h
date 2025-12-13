@@ -22,6 +22,13 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_node;
 
+typedef struct s_moves
+{
+	int	a;
+	int	b;
+	int	ab;
+}	t_moves;
+
 void	pa(t_node **a, t_node **b);
 void	pb(t_node **a, t_node **b);
 

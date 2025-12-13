@@ -73,7 +73,6 @@ int	main(int argc, char **argv)
 
 	i = argc - 1;
 	stuck = NULL;
-	// ft_printf("%d\n", argc);
 	while (i > 0)
 	{
 		tmp = stuck;
@@ -89,11 +88,12 @@ int	main(int argc, char **argv)
 		i--;
 	}
 	sort(&stuck, argc - 1);
-	// tmp = stuck;
+	tmp = stuck;
 	// while (tmp)
 	// {
 	// 	ft_printf("%d\n", tmp->value);
 	// 	tmp = tmp->next;
 	// }
+	ft_stuckclear(&stuck);
 	return (0);
 }
