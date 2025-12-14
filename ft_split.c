@@ -51,7 +51,7 @@ static int	ft_getwordsize(char **s, const char c)
 	return (i);
 }
 
-static void	ft_freearray(char **array)
+void	ft_freearray(char **array)
 {
 	char	**tmp;
 
@@ -82,7 +82,7 @@ static char	**ft_fillarray(char **array, const char *s, const char c)
 	return (array);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s)
 {
 	char			**array;
 	char			*tmp;
@@ -93,13 +93,13 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	tmp = (char *)s;
 	i = 0;
-	arraysize = ft_countword(s, c);
+	arraysize = ft_countword(s, ' ');
 	array = (char **)malloc((arraysize + 1) * sizeof(char *));
 	if (!array)
 		return (0);
 	while (i < arraysize)
 	{
-		array[i] = (char *)malloc(ft_getwordsize(&tmp, c) + 1);
+		array[i] = (char *)malloc(ft_getwordsize(&tmp, ' ') + 1);
 		if (!array[i])
 		{
 			ft_freearray(array);
@@ -108,5 +108,5 @@ char	**ft_split(char const *s, char c)
 		i++;
 	}
 	array[arraysize] = NULL;
-	return (ft_fillarray(array, s, c));
+	return (ft_fillarray(array, s, ' '));
 }

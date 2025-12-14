@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "ft_push_swap.h"
 
 int	ft_atoi(const char *nptr)
@@ -65,35 +66,55 @@ int	is_valid_number(char *s)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int	fill_list(t_node **stuck, char **numbers)
 {
 	int		i;
-	t_node	*stuck;
 	t_node	*tmp;
 
-	i = argc - 1;
-	stuck = NULL;
-	while (i > 0)
+	i = 0;
+	while (numbers[i])
 	{
-		tmp = stuck;
-		stuck = (t_node *)malloc(sizeof(t_node));
-		if (!is_valid_number(argv[i]))
+		if (!is_valid_number(numbers[i]))
 		{
-			ft_stuckclear(&stuck);
+			ft_freearray(numbers);
+			ft_stuckclear(stuck);
 			write(1, "Error\n", 6);
-			return (1);
+			return (-1);
 		}
-		stuck->value = ft_atoi(argv[i]);
-		stuck->next = tmp;
-		i--;
+		tmp = *stuck;
+		*stuck = (t_node *)malloc(sizeof(t_node));
+		(*stuck)->value = ft_atoi(numbers[i]);
+		(*stuck)->next = tmp;
+		i++;
 	}
-	sort(&stuck, argc - 1);
+	return (ft_freearray(numbers), i);
+}
+
+int	main(int argc, char **argv)
+{
+	t_node	*stuck;
+	int 	y;
+	int		size;
+	
+	stuck = NULL;
+	size = 0;
+	while (--argc > 0)
+	{
+		y = fill_list(&stuck, ft_split(argv[argc]));
+		if (y == -1)
+			return (1);
+		size += y;
+	}
+	sort(&stuck, size);
+	
+	t_node	*tmp;
 	tmp = stuck;
-	// while (tmp)
-	// {
-	// 	ft_printf("%d\n", tmp->value);
-	// 	tmp = tmp->next;
-	// }
+	while (tmp)
+	{
+		printf("%d\n", tmp->value);
+		tmp = tmp->next;
+	}
+
 	ft_stuckclear(&stuck);
 	return (0);
 }

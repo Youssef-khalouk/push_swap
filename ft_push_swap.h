@@ -29,6 +29,9 @@ typedef struct s_moves
 	int	ab;
 }	t_moves;
 
+void	ft_freearray(char **array);
+char	**ft_split(char const *s);
+
 void	pa(t_node **a, t_node **b);
 void	pb(t_node **a, t_node **b);
 
