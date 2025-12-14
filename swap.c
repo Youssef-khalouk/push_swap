@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf/ft_printf.h"
 #include "ft_push_swap.h"
 
 static int	swap(t_node **x)
@@ -29,13 +28,13 @@ static int	swap(t_node **x)
 void	sa(t_node **a)
 {
 	if (swap(a))
-		ft_printf("sa\n");
+		write(1, "sa\n", 3);
 }
 
 void	sb(t_node **b)
 {
 	if (swap(b))
-		ft_printf("sb\n");
+		write(1, "sb\n", 3);
 }
 
 void	ss(t_node **a, t_node **b)
@@ -46,5 +45,5 @@ void	ss(t_node **a, t_node **b)
 	_a = swap(a);
 	_b = swap(b);
 	if (_a || _b)
-		ft_printf("ss\n");
+		write(1, "ss\n", 3);
 }

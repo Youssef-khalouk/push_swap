@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-#include "printf/ft_printf.h"
 
 void	pa(t_node **a, t_node **b)
 {
@@ -23,7 +22,7 @@ void	pa(t_node **a, t_node **b)
 	*b = (*b)->next;
 	tmp->next = *a;
 	*a = tmp;
-	ft_printf("pa\n");
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_node **a, t_node **b)
@@ -36,5 +35,5 @@ void	pb(t_node **a, t_node **b)
 	*a = (*a)->next;
 	tmp->next = *b;
 	*b = tmp;
-	ft_printf("pb\n");
+	write(1, "pb\n", 3);
 }

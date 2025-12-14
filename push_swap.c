@@ -80,7 +80,7 @@ int	main(int argc, char **argv)
 		if (!is_valid_number(argv[i]))
 		{
 			ft_stuckclear(&stuck);
-			ft_printf("Error\n");
+			write(1, "Error\n", 6);
 			return (1);
 		}
 		stuck->value = ft_atoi(argv[i]);

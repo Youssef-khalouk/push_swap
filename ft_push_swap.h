@@ -14,7 +14,7 @@
 # define FT_PUSH_SWAP_H
 
 # include <stdlib.h>
-# include "printf/ft_printf.h"
+# include <unistd.h>
 
 typedef struct s_node
 {
@@ -43,6 +43,12 @@ void	rrr(t_node **a, t_node **b);
 void	sa(t_node **a);
 void	sb(t_node **b);
 void	ss(t_node **a, t_node **b);
+
+t_node	*initalize_stuck_b(t_node **stuck);
+
+int		get_rotations(t_node **stuckb, int value, int size);
+
+t_moves	get_moves(t_node *stucka, t_node **stuckb, int a_size, int b_size);
 
 void	sort(t_node **stuck, unsigned int size);
 

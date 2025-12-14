@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf/ft_printf.h"
 #include "ft_push_swap.h"
 
 static int	rotate(t_node **x)
@@ -31,13 +30,13 @@ static int	rotate(t_node **x)
 void	ra(t_node **a)
 {
 	if (rotate(a))
-		ft_printf("ra\n");
+		write(1, "ra\n", 3);
 }
 
 void	rb(t_node **b)
 {
 	if (rotate(b))
-		ft_printf("rb\n");
+		write(1, "rb\n", 3);
 }
 
 void	rr(t_node **a, t_node **b)
@@ -48,5 +47,5 @@ void	rr(t_node **a, t_node **b)
 	_a = rotate(a);
 	_b = rotate(b);
 	if (_a || _b)
-		ft_printf("rr\n");
+		write(1, "rr\n", 3);
 }

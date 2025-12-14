@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf/ft_printf.h"
 #include "ft_push_swap.h"
 
 static int	revers(t_node	**x)
@@ -31,13 +30,13 @@ static int	revers(t_node	**x)
 void	rra(t_node	**a)
 {
 	if (revers(a))
-		ft_printf("rra\n");
+		write(1, "rra\n", 4);
 }
 
 void	rrb(t_node	**b)
 {
 	if (revers(b))
-		ft_printf("rrb\n");
+		write(1, "rrb\n", 4);
 }
 
 void	rrr(t_node	**a, t_node	**b)
@@ -48,5 +47,5 @@ void	rrr(t_node	**a, t_node	**b)
 	_a = revers(a);
 	_b = revers(b);
 	if (_a || _b)
-		ft_printf("rrr\n");
+		write(1, "rrr\n", 4);
 }
