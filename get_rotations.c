@@ -68,9 +68,7 @@ int	get_rotations(t_node **stuckb, int value, int size)
 	tmp = *stuckb;
 	pos = 0;
 	init_min_max(*stuckb, &min, &max);
-	if (value <= min)
-		pos = 1 + get_value_pos(*stuckb, min);
-	else if (value >= max)
+	if (value <= min || value >= max)
 		pos = get_value_pos(*stuckb, max);
 	else
 	{

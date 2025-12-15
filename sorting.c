@@ -40,7 +40,7 @@ static void	move_rb(t_node **stuck, int times)
 	}
 }
 
-static void	move_ra(t_node **stuck, int times)
+void		move_ra(t_node **stuck, int times)
 {
 	while (times > 0)
 	{

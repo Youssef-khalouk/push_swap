@@ -55,4 +55,8 @@ t_moves	get_moves(t_node *stucka, t_node **stuckb, int a_size, int b_size);
 
 void	sort(t_node **stuck, unsigned int size);
 
+void    sort_0_6(t_node **stuck, unsigned int size);
+
+void	move_ra(t_node **stuck, int times);
+
 #endif

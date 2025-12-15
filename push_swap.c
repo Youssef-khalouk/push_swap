@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include "ft_push_swap.h"
 
-int	ft_atoi(const char *nptr)
+long long	ft_atoi(const char *nptr)
 {
 	char			sign;
 	long long		i;
@@ -33,7 +33,7 @@ int	ft_atoi(const char *nptr)
 		i = i * 10 + *nptr - '0';
 		nptr++;
 	}
-	return ((int)(i * sign));
+	return (i * sign);
 }
 
 void	ft_stuckclear(t_node **stuck)
@@ -57,43 +57,71 @@ int	is_valid_number(char *s)
 	i = 0;
 	if (s[i] == '+' || s[i] == '-')
 		i++;
+	if (!s[i])
+		return (0);
 	while (s[i])
 	{
 		if (s[i] < '0' || s[i] > '9')
 			return (0);
 		i++;
 	}
+	if (i > 11)
+		return (0);
 	return (1);
 }
 
 int	fill_list(t_node **stuck, char **numbers)
 {
-	int		i;
-	t_node	*tmp;
+	int			i;
+	long long	n;
+	t_node		*tmp;
+	int			size;
 
 	i = 0;
+	size = 0;
+	if (*numbers == NULL)
+		return (ft_freearray(numbers), -1);
 	while (numbers[i])
+		i++;
+	while (--i >= 0)
 	{
-		if (!is_valid_number(numbers[i]))
-		{
-			ft_freearray(numbers);
-			ft_stuckclear(stuck);
-			write(1, "Error\n", 6);
-			return (-1);
-		}
+		n = ft_atoi(numbers[i]);
+		if (!is_valid_number(numbers[i]) || n > 2147483647 || n < -2147483648)
+			return (ft_freearray(numbers), -1);
 		tmp = *stuck;
 		*stuck = (t_node *)malloc(sizeof(t_node));
-		(*stuck)->value = ft_atoi(numbers[i]);
+		(*stuck)->value = (int)n;
 		(*stuck)->next = tmp;
-		i++;
+		size++;
 	}
-	return (ft_freearray(numbers), i);
+	return (ft_freearray(numbers), size);
+}
+
+int	check_double(t_node *stuck)
+{
+	t_node	*tmp;
+	int		value;
+
+	tmp = stuck;
+	while (stuck)
+	{
+		tmp = stuck->next;
+		value = stuck->value;
+		while (tmp)
+		{
+			if (value == tmp->value)
+				return (1);
+			tmp = tmp->next;
+		}
+		stuck = stuck->next;
+	}
+	return (0);
 }
 
 int	main(int argc, char **argv)
 {
 	t_node	*stuck;
-	int 	y;
+	int		y;
 	int		size;
 	
 	stuck = NULL;
@@ -102,19 +130,16 @@ int	main(int argc, char **argv)
 	{
 		y = fill_list(&stuck, ft_split(argv[argc]));
 		if (y == -1)
-			return (1);
+			break ;
 		size += y;
 	}
-	sort(&stuck, size);
+	if (y == -1 || check_double(stuck))
+		return (write(1, "Error\n", 6), ft_stuckclear(&stuck), 1);
 	
-	t_node	*tmp;
-	tmp = stuck;
-	while (tmp)
-	{
-		printf("%d\n", tmp->value);
-		tmp = tmp->next;
-	}
-
+	if (size <= 6)
+		sort_0_6(&stuck, size);
+	else
+		sort(&stuck, size);
 	ft_stuckclear(&stuck);
 	return (0);
 }

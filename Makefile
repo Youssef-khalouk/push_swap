@@ -3,7 +3,7 @@ NAME = push_swap.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-PUSH_SWAP_SRC =	ft_split.c push.c reverse.c rotate.c swap.c sorting.c moves.c get_rotations.c
+PUSH_SWAP_SRC =	ft_split.c push.c reverse.c rotate.c swap.c sorting.c sort_0_6.c moves.c get_rotations.c
 
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRC:.c=.o)
 
