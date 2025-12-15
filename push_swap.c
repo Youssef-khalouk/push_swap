@@ -10,31 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_push_swap.h"
-
-long long	ft_atoi(const char *nptr)
-{
-	char			sign;
-	long long		i;
-
-	sign = 1;
-	i = 0;
-	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
-	{
-		if (*nptr == '-')
-			sign *= -1;
-		nptr++;
-	}
-	while (*nptr >= '0' && *nptr <= '9')
-	{
-		i = i * 10 + *nptr - '0';
-		nptr++;
-	}
-	return (i * sign);
-}
 
 void	ft_stuckclear(t_node **stuck)
 {
@@ -123,7 +99,7 @@ int	main(int argc, char **argv)
 	t_node	*stuck;
 	int		y;
 	int		size;
-	
+
 	stuck = NULL;
 	size = 0;
 	while (--argc > 0)
@@ -135,7 +111,6 @@ int	main(int argc, char **argv)
 	}
 	if (y == -1 || check_double(stuck))
 		return (write(1, "Error\n", 6), ft_stuckclear(&stuck), 1);
-	
 	if (size <= 6)
 		sort_0_6(&stuck, size);
 	else

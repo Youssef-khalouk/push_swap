@@ -29,34 +29,36 @@ typedef struct s_moves
 	int	ab;
 }	t_moves;
 
-void	ft_freearray(char **array);
-char	**ft_split(char const *s);
+void		ft_freearray(char **array);
+char		**ft_split(char const *s);
 
-void	pa(t_node **a, t_node **b);
-void	pb(t_node **a, t_node **b);
+void		pa(t_node **a, t_node **b);
+void		pb(t_node **a, t_node **b);
 
-void	ra(t_node **a);
-void	rb(t_node **b);
-void	rr(t_node **a, t_node **b);
+void		ra(t_node **a);
+void		rb(t_node **b);
+void		rr(t_node **a, t_node **b);
 
-void	rra(t_node **a);
-void	rrb(t_node **b);
-void	rrr(t_node **a, t_node **b);
+void		rra(t_node **a);
+void		rrb(t_node **b);
+void		rrr(t_node **a, t_node **b);
 
-void	sa(t_node **a);
-void	sb(t_node **b);
-void	ss(t_node **a, t_node **b);
+void		sa(t_node **a);
+void		sb(t_node **b);
+void		ss(t_node **a, t_node **b);
 
-t_node	*initalize_stuck_b(t_node **stuck);
+t_node		*initalize_stuck_b(t_node **stuck);
 
-int		get_rotations(t_node **stuckb, int value, int size);
+int			get_rotations(t_node **stuckb, int value, int size);
 
-t_moves	get_moves(t_node *stucka, t_node **stuckb, int a_size, int b_size);
+t_moves		get_moves(t_node *stucka, t_node **stuckb, int a_size, int b_size);
 
-void	sort(t_node **stuck, unsigned int size);
+void		sort(t_node **stuck, unsigned int size);
 
-void    sort_0_6(t_node **stuck, unsigned int size);
+void		sort_0_6(t_node **stuck, unsigned int size);
 
-void	move_ra(t_node **stuck, int times);
+void		move_ra(t_node **stuck, int times);
+
+long long	ft_atoi(const char *nptr);
 
 #endif

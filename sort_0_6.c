@@ -18,7 +18,7 @@ static int	get_min_pos(t_node **stuck, int size)
 	int		i;
 	int		min;
 	int		pos;
-	t_node *stucka;
+	t_node	*stucka;
 
 	i = 0;
 	stucka = *stuck;
@@ -42,14 +42,14 @@ static void	sort3(t_node **stuck)
 	if ((*stuck)->value > (*stuck)->next->value
 		&& (*stuck)->value > (*stuck)->next->next->value)
 		ra(stuck);
-	else if ((*stuck)->next->value > (*stuck)->value &&
-		(*stuck)->next->value > (*stuck)->next->next->value)
+	else if ((*stuck)->next->value > (*stuck)->value
+		&& (*stuck)->next->value > (*stuck)->next->next->value)
 		rra(stuck);
 	if ((*stuck)->value > (*stuck)->next->value)
 		sa(stuck);
 }
 
-static void sort5(t_node **stuck, t_node **stuckb)
+static void	sort5(t_node **stuck, t_node **stuckb)
 {
 	move_ra(stuck, get_min_pos(stuck, 5));
 	pb(stuck, stuckb);
@@ -60,7 +60,7 @@ static void sort5(t_node **stuck, t_node **stuckb)
 	pa(stuck, stuckb);
 }
 
-static void sort6(t_node **stuck, t_node **stuckb)
+static void	sort6(t_node **stuck, t_node **stuckb)
 {
 	move_ra(stuck, get_min_pos(stuck, 6));
 	pb(stuck, stuckb);
@@ -74,9 +74,9 @@ static void sort6(t_node **stuck, t_node **stuckb)
 	pa(stuck, stuckb);
 }
 
-void    sort_0_6(t_node **stuck, unsigned int size)
+void	sort_0_6(t_node **stuck, unsigned int size)
 {
-	t_node *stuckb;
+	t_node	*stuckb;
 
 	if (size <= 1)
 		return ;
