@@ -110,7 +110,7 @@ int	main(int argc, char **argv)
 		size += y;
 	}
 	if (y == -1 || check_double(stuck))
-		return (write(1, "Error\n", 6), ft_stuckclear(&stuck), 1);
+		return (write(2, "Error\n", 6), ft_stuckclear(&stuck), 1);
 	if (size <= 6)
 		sort_0_6(&stuck, size);
 	else
