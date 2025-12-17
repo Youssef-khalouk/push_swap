@@ -19,8 +19,12 @@ t_node	*initalize_stuck_b(t_node **stuck)
 	tmp = NULL;
 	pb(stuck, &tmp);
 	pb(stuck, &tmp);
+	write(1, "pb\npb\n", 6);
 	if (tmp->value < tmp->next->value)
+	{
 		rb(&tmp);
+		write(1, "rb\n", 3);
+	}
 	return (tmp);
 }
 

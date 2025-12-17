@@ -27,23 +27,16 @@ static int	swap(t_node **x)
 
 void	sa(t_node **a)
 {
-	if (swap(a))
-		write(1, "sa\n", 3);
+	swap(a);
 }
 
 void	sb(t_node **b)
 {
-	if (swap(b))
-		write(1, "sb\n", 3);
+	swap(b);
 }
 
 void	ss(t_node **a, t_node **b)
 {
-	int	_a;
-	int	_b;
-
-	_a = swap(a);
-	_b = swap(b);
-	if (_a || _b)
-		write(1, "ss\n", 3);
+	swap(a);
+	swap(b);
 }

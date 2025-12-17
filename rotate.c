@@ -29,23 +29,16 @@ static int	rotate(t_node **x)
 
 void	ra(t_node **a)
 {
-	if (rotate(a))
-		write(1, "ra\n", 3);
+	rotate(a);
 }
 
 void	rb(t_node **b)
 {
-	if (rotate(b))
-		write(1, "rb\n", 3);
+	rotate(b);
 }
 
 void	rr(t_node **a, t_node **b)
 {
-	int	_a;
-	int	_b;
-
-	_a = rotate(a);
-	_b = rotate(b);
-	if (_a || _b)
-		write(1, "rr\n", 3);
+	rotate(a);
+	rotate(b);
 }

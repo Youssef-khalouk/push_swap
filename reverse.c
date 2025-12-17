@@ -29,23 +29,16 @@ static int	revers(t_node	**x)
 
 void	rra(t_node	**a)
 {
-	if (revers(a))
-		write(1, "rra\n", 4);
+	revers(a);
 }
 
 void	rrb(t_node	**b)
 {
-	if (revers(b))
-		write(1, "rrb\n", 4);
+	revers(b);
 }
 
 void	rrr(t_node	**a, t_node	**b)
 {
-	int	_a;
-	int	_b;
-
-	_a = revers(a);
-	_b = revers(b);
-	if (_a || _b)
-		write(1, "rrr\n", 4);
+	revers(a);
+	revers(b);
 }

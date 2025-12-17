@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "ft_push_swap_bonus.h"
 
 static void	ft_stuckclear(t_node **stuck)
 {
@@ -111,10 +111,12 @@ int	main(int argc, char **argv)
 	}
 	if (y == -1 || check_double(stuck))
 		return (write(2, "Error\n", 6), ft_stuckclear(&stuck), 1);
-	if (size <= 6)
-		sort_0_6(&stuck, size);
-	else
-		sort(&stuck, size);
+	y = sort(&stuck);
 	ft_stuckclear(&stuck);
-	return (0);
+	if (y == 1)
+		return (write(1, "OK\n", 3), 0);
+	else if (y == 0)
+		return (write(1, "KO\n", 3), 0);
+	else
+		return (write(1, "Error\n", 6), 1);
 }
