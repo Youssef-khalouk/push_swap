@@ -6,11 +6,22 @@
 /*   By: ykhalouk <ykhalouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 13:57:33 by ykhalouk          #+#    #+#             */
-/*   Updated: 2025/12/18 13:48:13 by ykhalouk         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:21:25 by ykhalouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
+
+int	is_sorted(t_node *stuck)
+{
+	while (stuck)
+	{
+		if (stuck->next && stuck->value > stuck->next->value)
+			return (0);
+		stuck = stuck->next;
+	}
+	return (1);
+}
 
 static int	ft_abs(int value)
 {

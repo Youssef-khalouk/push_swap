@@ -6,7 +6,7 @@
 /*   By: ykhalouk <ykhalouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 17:06:02 by ykhalouk          #+#    #+#             */
-/*   Updated: 2025/12/18 13:48:16 by ykhalouk         ###   ########.fr       */
+/*   Updated: 2025/12/18 16:25:52 by ykhalouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,8 @@ int	main(int argc, char **argv)
 	}
 	if (y == -1 || check_double(stuck))
 		return (write(2, "Error\n", 6), ft_stuckclear(&stuck), 1);
+	if (is_sorted(stuck))
+		return (ft_stuckclear(&stuck), 0);
 	if (size <= 6)
 		sort_0_6(&stuck, size);
 	else
