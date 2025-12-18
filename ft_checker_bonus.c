@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_checker_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykhalouk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ykhalouk <ykhalouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 17:06:02 by ykhalouk          #+#    #+#             */
-/*   Updated: 2025/12/11 17:06:04 by ykhalouk         ###   ########.fr       */
+/*   Updated: 2025/12/18 13:47:29 by ykhalouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ int	main(int argc, char **argv)
 
 	stuck = NULL;
 	size = 0;
+	if (argc == 1)
+		return (0);
 	while (--argc > 0)
 	{
 		y = fill_list(&stuck, ft_split(argv[argc]));

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykhalouk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ykhalouk <ykhalouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 15:19:58 by ykhalouk          #+#    #+#             */
-/*   Updated: 2025/12/17 15:20:06 by ykhalouk         ###   ########.fr       */
+/*   Updated: 2025/12/18 13:47:07 by ykhalouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,17 @@ int	sort(t_node **stuck)
 	char	operation[5];
 
 	index = 0;
+	stuckb = NULL;
 	while (1)
 	{
 		if (index >= 5)
 			return (-1);
-		i = read(1, &operation[index], 1);
+		i = read(0, &operation[index], 1);
 		if (i < 1)
 			break ;
 		if (operation[index] == '\n')
 		{
+			operation[++index] = 0;
 			if (!execute_operation(stuck, &stuckb, operation))
 				return (-1);
 			index = 0;
@@ -90,7 +92,5 @@ int	sort(t_node **stuck)
 		else
 			index++;
 	}
-	if (is_sorted(*stuck))
-		return (1);
-	return (0);
+	return (is_sorted(*stuck));
 }
