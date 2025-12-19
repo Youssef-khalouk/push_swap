@@ -68,9 +68,9 @@ t_moves	get_moves(t_node *stucka, t_node **stuckb, int a_size, int b_size)
 	{
 		tmp_m.a = (i <= a_size / 2) * i + (i > a_size / 2) * (i - a_size);
 		tmp_m.b = get_rotations(stuckb, stucka->value, b_size);
-		if ((tmp_m.a > 0 && tmp_m.a > 0) || (tmp_m.a < 0 && tmp_m.a < 0))
+		if ((tmp_m.a > 0 && tmp_m.b > 0) || (tmp_m.a < 0 && tmp_m.b < 0))
 			calculate_best_move(&tmp_m.a, &tmp_m.b, &tmp_m.ab);
-		if ((ft_abs(tmp_m.b) + ft_abs(tmp_m.a) + ft_abs(tmp_m.ab)) < rotations)
+		if ((ft_abs(tmp_m.b) + ft_abs(tmp_m.a) + (ft_abs(tmp_m.ab))) < rotations)
 			rotations = set_new_move(&moves, tmp_m.a, tmp_m.b, tmp_m.ab);
 		stucka = stucka->next;
 		i++;
