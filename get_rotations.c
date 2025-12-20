@@ -49,18 +49,21 @@ static void	init_min_max(t_node *stuckb, int *min, int *max)
 	*max = max1;
 }
 
-static int	get_value_pos(t_node *stuck, int value)
+static int get_value_pos(t_node *stuck, int value)
 {
-	int	pos;
-
+    int pos;
+	
 	pos = 0;
-	while (stuck->value != value)
-	{
-		stuck = stuck->next;
-		pos++;
-	}
-	return (pos);
+    while (stuck)
+    {
+        if (stuck->value == value)
+            return (pos);
+        stuck = stuck->next;
+        pos++;
+    }
+    return (0);
 }
+
 
 int	get_rotations(t_node **stuckb, int value, int size)
 {
