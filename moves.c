@@ -6,7 +6,7 @@
 /*   By: ykhalouk <ykhalouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 13:57:33 by ykhalouk          #+#    #+#             */
-/*   Updated: 2025/12/18 16:21:25 by ykhalouk         ###   ########.fr       */
+/*   Updated: 2025/12/20 11:58:56 by ykhalouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ t_moves	get_moves(t_node *stucka, t_node **stuckb, int a_size, int b_size)
 
 	rotations = 2147483647;
 	i = 0;
-	tmp_m.ab = 0;
 	while (stucka)
 	{
 		tmp_m.a = (i <= a_size / 2) * i + (i > a_size / 2) * (i - a_size);
@@ -71,7 +70,7 @@ t_moves	get_moves(t_node *stucka, t_node **stuckb, int a_size, int b_size)
 		tmp_m.ab = 0;
 		if ((tmp_m.a > 0 && tmp_m.b > 0) || (tmp_m.a < 0 && tmp_m.b < 0))
 			calculate_best_move(&tmp_m.a, &tmp_m.b, &tmp_m.ab);
-		if ((ft_abs(tmp_m.a) + ft_abs(tmp_m.b) + (ft_abs(tmp_m.ab))) < rotations)
+		if (ft_abs(tmp_m.a) + ft_abs(tmp_m.b) + ft_abs(tmp_m.ab) < rotations)
 			rotations = set_new_move(&moves, tmp_m.a, tmp_m.b, tmp_m.ab);
 		stucka = stucka->next;
 		i++;

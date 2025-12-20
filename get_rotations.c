@@ -6,7 +6,7 @@
 /*   By: ykhalouk <ykhalouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 13:57:56 by ykhalouk          #+#    #+#             */
-/*   Updated: 2025/12/18 13:48:06 by ykhalouk         ###   ########.fr       */
+/*   Updated: 2025/12/20 11:56:10 by ykhalouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,20 @@ static void	init_min_max(t_node *stuckb, int *min, int *max)
 	*max = max1;
 }
 
-static int get_value_pos(t_node *stuck, int value)
+static int	get_value_pos(t_node *stuck, int value)
 {
-    int pos;
-	
-	pos = 0;
-    while (stuck)
-    {
-        if (stuck->value == value)
-            return (pos);
-        stuck = stuck->next;
-        pos++;
-    }
-    return (0);
-}
+	int	pos;
 
+	pos = 0;
+	while (stuck)
+	{
+		if (stuck->value == value)
+			return (pos);
+		stuck = stuck->next;
+		pos++;
+	}
+	return (0);
+}
 
 int	get_rotations(t_node **stuckb, int value, int size)
 {

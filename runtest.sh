@@ -6,7 +6,7 @@ STATE="PASS"
 
 while [ $COUNT -lt 50 ]
 do
-    ARG=$(shuf -i 0-9999 -n 100 | tr '\n' ' ')
+    ARG=$(shuf -i 0-9999 -n 500 | tr '\n' ' ')
 
     PUSH_OUTPUT=$(./push_swap $ARG)
 
@@ -14,11 +14,7 @@ do
 
     OPS=$(echo "$PUSH_OUTPUT" | wc -l)
 
-    if [ "$OPS" -gt 700 ]; then
-        STATE="FAILED"
-    else
-        STATE="PASS"
-    fi
+    if [ "$OPS" -gt 5500 ]; then (STATE="FAILED") else (STATE="PASS") fi
 
     echo "TEST $COUNT -> $OPS ops | $STATE | checker = $CHECKER_RESULT"
 

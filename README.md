@@ -1,6 +1,6 @@
-*This project has been created by ykhalouk.*
+* This project has been created as part of the 42 curriculum by ykhalouk.*
 
-# push_swap
+<h1 style="color:white;">PUSH_SWAP</h1>
 
 ## Description
 
@@ -24,6 +24,19 @@ This project focuses on:
 ---
 
 
+## Dependencies
+
+### C standard library
+
+- malloc, free
+- write
+
+### My own functions
+
+- ft_atoi
+- ft_split
+- linked list 
+
 ## Instructions
 
 ### Compilation
@@ -38,7 +51,7 @@ make
 ```
 ./push_swap 4 2 3 1
 ```
-# Bonus — Checker
+<h1 style="color:white;">BONUS - CHECKER</h1>
 
 This project also includes a **bonus program called `checker`**.
 
@@ -48,6 +61,19 @@ stack A and stack B, and verifies whether the result is correct.
 - If stack A is sorted in ascending order and stack B is empty, it prints `OK`
 - Otherwise, it prints `KO`
 - If an invalid instruction is encountered, it prints `Error`
+
+## Dependencies
+
+### C standard library
+
+- malloc, free
+- write
+
+### My own functions
+
+- ft_atoi
+- ft_split
+- linked list 
 
 ## Instructions
 

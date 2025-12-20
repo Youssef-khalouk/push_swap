@@ -61,6 +61,6 @@ void		move_ra(t_node **stuck, int times);
 
 long long	ft_atoi(const char *nptr);
 
-int	is_sorted(t_node *stuck);
+int			is_sorted(t_node *stuck);
 
 #endif
